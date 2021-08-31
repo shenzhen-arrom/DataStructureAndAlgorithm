@@ -48,6 +48,17 @@ public class HeapSort {
      * @param len 数组的长度
      */
     public void heapSort(int[] array,int len){
+        //建堆  len/2-1 最后一个非子节点
+        for (int i = len/2-1; i >0; i--) {
+            maxHeapModify(array, i, len-1);
+        }
+        //排序，根节点和最后一个节点交换，换完以后，取走根，重新建堆  len-1 最后一个节点
+        for (int i = len-1; i > 0; i--) {
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+            maxHeapModify(array, 0, i-1);
+        }
 
     }
 
