@@ -46,7 +46,25 @@ class BubbleSort{
             }
         }
     }
-
+ /**
+     *  优化版本的冒泡排序
+     *  
+     * @param list
+     */
+    public void bubbleSortV3(int[] list){
+        //2.剩下的数据排序
+        for (int j = 0; j < list.length-1; j++) {
+              //1.先做完第一轮的排序
+            int changeIndex = 0；
+            for (int i = 0; i < list.length-1-j; i++) {
+                if(list[i]>list[i+1]){ //需要交换
+                    swap(list[i],list[i+1]);
+                    changeIndex = i+1；
+                }
+            }
+            j = changeIndex;
+        }
+    }
 
     /**
      *  交换位置
